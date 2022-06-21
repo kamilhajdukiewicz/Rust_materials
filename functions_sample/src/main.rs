@@ -33,5 +33,5 @@ fn get_five_with_return() -> i32 {
 
 //function which return tuple
 fn get_tuple() -> (String, char) {
-    (String::from("Hello"), 'A')
+    (String::from("Hello"), 'B')
 }
