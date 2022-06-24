@@ -26,6 +26,13 @@ fn main() {
     let s3 = &mut mut_str;
     println!("s3 = {}", s3);
 
+    //slices
+    let hello_world = String::from("Hello world");
+    let hello = &hello_world[..5];
+    let world = &hello_world[6..];
+    println!("hello = {}, world = {}", hello, world);
+    println!("First word = {}", find_first_word(&hello_world));
+
 }
 
 fn calculate_length(s: &String) -> usize {  //the function takes the reference. str is still owner.
@@ -35,4 +42,16 @@ fn calculate_length(s: &String) -> usize {  //the function takes the reference. 
 //mutable reference
 fn change_text(s: &mut String) {
     s.push_str(" after change");
+}
+
+//function which return slice
+fn find_first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
+        }
+    }
+    &s[..]
 }
