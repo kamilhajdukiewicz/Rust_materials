@@ -16,6 +16,15 @@ fn main() {
 
     let user2 = build_user(String::from("User2"), String::from("user2@gmail.com"));
     println!("User2 username: {}, email: {}", user2.username, user2.email);
+
+    //struct update syntax, onyl email changed, rest of the memebers are the same as in user1
+    //now the user1 is not valid. The ownership was moved to user1_updated
+    let user1_updated = User {
+        email: String::from("ragnartrump@gmail.com"),
+        ..user1
+    };
+    //println!("User1 = {}, user1.username")
+    println!("User1 = {}", user1_updated.username);
 }
 
 struct User {
