@@ -25,6 +25,8 @@ fn main() {
     };
     //println!("User1 = {}, user1.username")
     println!("User1 = {}", user1_updated.username);
+
+    let color = Color(255,255,0);
 }
 
 struct User {
@@ -33,6 +35,9 @@ struct User {
     email: String,
     sign_in_count: u64,
 }
+
+//struct in tuple style
+struct Color(u32, u32, u32);
 
 //If the parameter have the same name as the member of the struct
 //You can write only the name -> not username: username
