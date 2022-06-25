@@ -14,6 +14,15 @@ impl Rectangle {
     fn can_hold(&self, other: &Rectangle) -> bool {
         self.width >= other.width && self.height >= other.height
     }
+
+    //method without self
+    //Can be executed like that Rectangle::create_square(size: u32)
+    fn create_square(size: u32) -> Rectangle {
+        Rectangle {
+            width: size,
+            height: size,
+        }
+    }
 }
 
 fn main() {
@@ -45,6 +54,9 @@ fn main() {
 
     println!("Can rec1 hold rec2? -? {}", rec.can_hold(&rec2));
     println!("Can rec1 hold rec3? -? {}", rec.can_hold(&rec3));
+
+    let square = Rectangle::create_square(10);
+    println!("Square: {:#?}", square);
 }
 
 fn area(rec: &Rectangle) -> u32 {
