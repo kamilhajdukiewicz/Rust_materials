@@ -47,6 +47,15 @@ fn main() {
 
     let coin = Coin::Quarter(State::Texas);
     println!("Value of the coin is {}", value_in_cents(coin));
+
+    //Option sample
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
+    println!("Five = {:#?}, Six = {:#?}, None = {:#?}", five, six, none); 
+
+    let state = State::Texas;
+    println!("Are you in Alabama? - {:?}", are_you_in_alabama(state));
 }
 
 //match function sample
@@ -62,5 +71,20 @@ fn value_in_cents(coin: Coin) -> u8 {
             println!("The quarter is from state {:#?}", state);
             25
         }
+    }
+}
+
+fn plus_one(opt: Option<i32>) -> Option<i32> {
+    match opt {
+        None => None,
+        Some(opt) => Some(opt + 1),
+    }
+}
+
+fn are_you_in_alabama(state: State) -> bool {
+    match state {
+        State::Alabama => true,
+        //this handle any other case, _ -> means that the value is not needed.
+        _ => false,
     }
 }
