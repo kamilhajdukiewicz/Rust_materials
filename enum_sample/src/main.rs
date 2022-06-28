@@ -55,7 +55,8 @@ fn main() {
     println!("Five = {:#?}, Six = {:#?}, None = {:#?}", five, six, none); 
 
     let state = State::Texas;
-    println!("Are you in Alabama? - {:?}", are_you_in_alabama(state));
+    println!("Are you in Alabama? - {}", are_you_in_alabama(&state));
+    println!("Are you in Alabama2? - {}", are_you_in_alabama_with_if(&state));
 }
 
 //match function sample
@@ -81,10 +82,19 @@ fn plus_one(opt: Option<i32>) -> Option<i32> {
     }
 }
 
-fn are_you_in_alabama(state: State) -> bool {
+fn are_you_in_alabama(state: &State) -> bool {
     match state {
         State::Alabama => true,
         //this handle any other case, _ -> means that the value is not needed.
         _ => false,
     }
+}
+
+//If let sample
+fn are_you_in_alabama_with_if(state: &State) -> bool {
+    if let State::Alabama = state {
+        true
+    } else {
+        false
+    } 
 }
