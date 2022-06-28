@@ -12,6 +12,13 @@ enum Message {
     ChangeColor(i32, i32, i32),
 }
 
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
+
 impl Message {
     fn call(&self) {
         println!("Message info: {:#?}", self);
@@ -30,4 +37,20 @@ fn main() {
 
     message1.call();
     message2.call();
+
+    let coin = Coin::Penny;
+    println!("Value of the coin is {}", value_in_cents(coin));
+}
+
+//match function sample
+fn value_in_cents(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => {
+            println!("Lucky penny!");
+            1
+        }
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25,
+    }
 }
