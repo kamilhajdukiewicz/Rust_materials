@@ -16,7 +16,14 @@ enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter,
+    Quarter(State),
+}
+
+#[derive(Debug)]
+enum State {
+    Alaska,
+    Alabama,
+    Texas,
 }
 
 impl Message {
@@ -38,7 +45,7 @@ fn main() {
     message1.call();
     message2.call();
 
-    let coin = Coin::Penny;
+    let coin = Coin::Quarter(State::Texas);
     println!("Value of the coin is {}", value_in_cents(coin));
 }
 
@@ -51,6 +58,9 @@ fn value_in_cents(coin: Coin) -> u8 {
         }
         Coin::Nickel => 5,
         Coin::Dime => 10,
-        Coin::Quarter => 25,
+        Coin::Quarter(state) => {
+            println!("The quarter is from state {:#?}", state);
+            25
+        }
     }
 }
