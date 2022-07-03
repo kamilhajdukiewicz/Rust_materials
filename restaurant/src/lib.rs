@@ -1,11 +1,7 @@
 use std::fmt::Result;
 use std::io::Result as IoResult;
 
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
+mod front_of_house;
 
 mod back_of_house {
     fn fix_incorrect_order() {
@@ -23,7 +19,7 @@ fn deliver_order() {
 
 }
 
-use crate::front_of_house::hosting;
+pub use crate::front_of_house::hosting;
 
 pub fn eat_at_restaurant() {
     // Absolute path
