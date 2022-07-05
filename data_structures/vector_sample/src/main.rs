@@ -9,6 +9,10 @@ fn main() {
     vec1.push(1);
     vec1.push(2);
     vec1.push(3);
+    vec1.push(4);
+
+    //removing element from vector
+    vec1.pop();
 
     //reading an item from vector using brackets
     let third_element = &vec1[2];
@@ -35,4 +39,20 @@ fn main() {
         *item = *item + 50;
         println!("Value after change = {}", item);
     }
+
+    //Vector which stores different types
+    let vec3 = vec![EnumTypes::Int(10), 
+                    EnumTypes::Float(10.5),
+                    EnumTypes::Text(String::from("Text"))];
+
+    for item in &vec3 {
+        println!("Element = {:#?}", item);
+    }
+}
+
+#[derive(Debug)]
+enum EnumTypes {
+    Int(i32),
+    Float(f32),
+    Text(String),
 }
