@@ -25,4 +25,12 @@ fn main() {
     let str4 = str1 + &world;
     //str1 is not valid anymore
     println!("After + : {}", str4);
+
+    //different way to combining strings
+    let tic = String::from("tic");
+    let tac = String::from("tac");
+    let toe = String::from("toe");
+
+    let ttt = format!("{}-{}-{}", tic, tac, toe);
+    println!("ttt = {}", ttt);
 }
