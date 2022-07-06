@@ -19,4 +19,10 @@ fn main() {
     //updating a string with character
     str1.push('!');
     println!("After push: {}", str1);
+
+    //concatenate strings with + operator
+    let world = String::from(" World!");
+    let str4 = str1 + &world;
+    //str1 is not valid anymore
+    println!("After + : {}", str4);
 }
