@@ -26,6 +26,25 @@ fn main() {
         println!("{} team points = {}", key, value);
     }
 
+    //overwriting the value
+    hm.insert(String::from("Black"), 20);
+    println!("{:?}", hm);
+    hm.insert(String::from("Black"), 25);
+    println!("{:?}", hm);
 
+    //inserting value only wen the key has no value yet
+    hm.entry(String::from("White")).or_insert(99);
+    hm.entry(String::from("Black")).or_insert(90);
+    println!("{:?}", hm);
 
+    //updating the value based on the old value
+    let text = "Hello world, Hello earth!";
+    let mut word_map = HashMap::new();
+
+    for word in text.split_whitespace() {
+        let count = word_map.entry(word).or_insert(0);
+        *count += 1;
+    }
+
+    println!("{:?}", word_map);
 }
