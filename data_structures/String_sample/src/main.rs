@@ -33,4 +33,18 @@ fn main() {
 
     let ttt = format!("{}-{}-{}", tic, tac, toe);
     println!("ttt = {}", ttt);
+
+
+    //iterating through strings
+    let s = String::from("नमस्ते");
+
+    //chars
+    for c in s.chars() {
+        println!("{}", c);
+    }
+
+    //bytes
+    for c in s.bytes() {
+        println!("{}", c);
+    }
 }
